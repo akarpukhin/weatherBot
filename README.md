@@ -1,9 +1,9 @@
-# uMetalMeBot
+# weatherBot
 description
 
 # Installation:
-1. git clone https://github.com/akarpukhin/umetalme
-2. cd umetalme
+1. git clone https://github.com/akarpukhin/weatherBot
+2. cd weatherBot
 3. pip install -r requirements.txt
 
 
@@ -16,7 +16,7 @@ How to get (if you have not):
 Create file token.json and save your token inside this file 
 example: 
 {
-"token" : "409781971:AAHo21_WPj4F0xLIm4VwAT_O619vMpfF2cI"
+"telegram_token" : "409781971:AAHo21_WPj4F0xLIm4VwAT_O619vMpfF2cI"
 }
 
 

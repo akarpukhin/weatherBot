@@ -25,10 +25,10 @@ def start(bot, update):
         update.message.from_user.last_name, update.message.from_user.first_name)
     )
 
-    bot.sendMessage(update.message.chat_id, text="Привет! \n Я - uMetalMeBot! \n\n"
-                                                 "Бот, который поможет Вам в поиске концертов\r\n"
+    bot.sendMessage(update.message.chat_id, text="Привет! \n Я - weatherBot! \n\n"
+                                                 "Бот, который расскажет Вам о погоде в вашем городе\r\n"
                                                  "<b>Основные команды:</b>\n"
-                                                 "/NearestEvent - посмотреть расписание на ближайшие даты\n"
+                                                 "/getWeather - Получить погоду\n"
                                                  "<b>debug commands:</b>\n"
                                                  "/exit\n"
                                                  "/reset", parse_mode='HTML')
@@ -55,7 +55,7 @@ main_conversation_handler = ConversationHandler(
 
     states={
         'Menu': [
-            CommandHandler("NearestEvent", NearestEvent.event),
+            CommandHandler("getWeather", NearestEvent.event),
             CommandHandler("exit", stop)],
     },
 
