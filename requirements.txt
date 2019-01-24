@@ -1,3 +1,5 @@
 python-telegram-bot==6.1.0
 flask==0.12.2
 sqlalchemy==1.1.11
+requests
+python-telegram-bot[socks]

@@ -7,7 +7,7 @@ import sys
 import time
 import configs
 import logging
-import NearestEvent
+import GetWeather
 
 
 if not os.path.exists(configs.LOG_FILE):
@@ -29,6 +29,7 @@ def start(bot, update):
                                                  "Бот, который расскажет Вам о погоде в вашем городе\r\n"
                                                  "<b>Основные команды:</b>\n"
                                                  "/getWeather - Получить погоду\n"
+                                                 "/getMoscowWeather - получить погоду в Москве\n"
                                                  "<b>debug commands:</b>\n"
                                                  "/exit\n"
                                                  "/reset", parse_mode='HTML')
@@ -55,8 +56,13 @@ main_conversation_handler = ConversationHandler(
 
     states={
         'Menu': [
-            CommandHandler("getWeather", NearestEvent.event),
+            CommandHandler("getWeather", GetWeather.whereweateher),
+            CommandHandler("getMoscowWeather", GetWeather.getweather),
             CommandHandler("exit", stop)],
+
+        'Weather': [
+            RegexHandler('^(Москва)$', GetWeather.getweather),
+        ],
     },
 
     fallbacks=[CommandHandler("exit", stop)]
@@ -65,7 +71,10 @@ main_conversation_handler = ConversationHandler(
 
 def main():
 
-    updtr = Updater(configs.TELEGRAM_BOT_KEY)
+    if configs.HOSTNAME == 'MacBook-Pro-Aleksandr-2.local':
+        updtr = Updater(configs.TELEGRAM_BOT_KEY, request_kwargs=configs.REQUEST_KWARGS)
+    else:
+        updtr = Updater(configs.TELEGRAM_BOT_KEY)
     updtr.dispatcher.add_handler(main_conversation_handler)
 
     updtr.dispatcher.add_handler(CommandHandler("reset", restart))
