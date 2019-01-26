@@ -21,6 +21,10 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 LOG_FILE = os.path.join(BASE_DIR, "logs/logs.log")
 
-REQUEST_KWARGS={
-    'proxy_url': 'socks5://47.52.195.117:1080'
+REQUEST_KWARGS = {
+    'proxy_url': 'socks5://51.77.213.30:58222',
+                 'urllib3_proxy_kwargs': {
+                          'username': 'pruser',
+                          'password': 'pruser'
+                 }
 }

@@ -71,7 +71,7 @@ main_conversation_handler = ConversationHandler(
 
 def main():
 
-    if configs.HOSTNAME == 'MacBook-Pro-Aleksandr-2.local':
+    if "-Aleksandr-" in configs.HOSTNAME:
         updtr = Updater(configs.TELEGRAM_BOT_KEY, request_kwargs=configs.REQUEST_KWARGS)
     else:
         updtr = Updater(configs.TELEGRAM_BOT_KEY)
