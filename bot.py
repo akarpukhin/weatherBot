@@ -46,7 +46,7 @@ def stop(bot, update):
 
 
 def restart(bot, update):
-    bot.send_message(update.message.chat_id, "Bot is restarting...!")
+    bot.send_message(update.message.chat_id, "Bot is restarting...! - /start")
     time.sleep(0.2)
     os.execl(sys.executable, sys.executable, *sys.argv)
 
